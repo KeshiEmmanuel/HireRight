@@ -1,48 +1,123 @@
-<footer class="pt-14">
-  <article class="flex flex-col items-center gap-2">
-    <h1 class="text-6xl font-slab font-medium text-center">
-      Building a team or building <br /> a career?
+---
+// You can import any required scripts or components here
+---
+
+<footer class="pt-10 lg:pt-14">
+  <article class="flex flex-col items-center gap-6 lg:gap-2">
+    <h1
+      class="text-4xl md:text-5xl lg:text-6xl font-slab font-medium text-center px-4"
+    >
+      Building a team or building <br class="hidden md:block" /> a career?
     </h1>
-    <p class="text-gray-700">
+    <p class="text-gray-700 text-center px-4 text-sm md:text-base">
       We've done this across 12+ industries. We can do it for you.
     </p>
-    <div class="flex items-center gap-2">
-      <button class="bg-[#F18A00] text-white px-6 py-2 font-slab rounded-full"
-        >Find Your Next Role</button
+
+    <div
+      class="flex flex-col sm:flex-row items-center gap-3 lg:gap-2 w-full sm:w-auto px-4 mt-2 lg:mt-0"
+    >
+      <button
+        class="bg-[#F18A00] text-white px-6 py-3 lg:py-2 font-slab rounded-full w-full sm:w-auto"
       >
-      <button class="bg-[#1c15e0] text-white px-6 py-2 font-slab rounded-full"
-        >Find Talent</button
+        Find Your Next Role
+      </button>
+      <button
+        class="bg-[#1c15e0] text-white px-6 py-3 lg:py-2 font-slab rounded-full w-full sm:w-auto"
       >
+        Find Talent
+      </button>
     </div>
-    <img src="/footer_img.png" alt="Footer Image" />
-    <div class="grid grid-cols-5 py-10 w-full px-16">
-      <div>
-        <img src="/logo_black.png" class="w-48" alt="recruiter_logo" />
-        <div class="icon-cta">
+
+    <img
+      src="/footer_img.png"
+      alt="Footer Image"
+      class="w-full max-w-[1440px] px-4 md:px-8 lg:px-0 h-auto object-contain mt-6 lg:mt-4"
+    />
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-4 py-10 w-full px-4 md:px-8 lg:px-16"
+    >
+      <div
+        class="flex flex-col gap-4 sm:col-span-2 md:col-span-3 lg:col-span-1"
+      >
+        <img src="/logo_black.png" class="w-40 lg:w-48" alt="recruiter_logo" />
+        <div class="icon-cta flex gap-4 text-gray-700 text-sm">
           <p>Linkedin</p>
           <p>Glasdoor</p>
           <p>Indeed</p>
         </div>
       </div>
-      <ul class="flex flex-col gap-2">
-        <li><a>Job Seekers</a></li>
-        <li><a>Search Jobs</a></li>
-        <li><a>Find recruiter</a></li>
+
+      <ul class="flex flex-col gap-3 lg:gap-2 text-sm md:text-base">
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Job Seekers</a>
+        </li>
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Search Jobs</a>
+        </li>
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Find recruiter</a>
+        </li>
       </ul>
-      <ul class="flex flex-col gap-2">
-        <li><a>Hire Now. Pay After</a></li>
-        <li><a>Find Talents</a></li>
-        <li><a>Industries We Serve</a></li>
+
+      <ul class="flex flex-col gap-3 lg:gap-2 text-sm md:text-base">
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Hire Now. Pay After</a>
+        </li>
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Find Talents</a>
+        </li>
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Industries We Serve</a>
+        </li>
       </ul>
-      <ul class="flex flex-col gap-2">
-        <li><a>Join HireRight</a></li>
-        <li><a>Refer a Friend</a></li>
-        <li><a>Our Stories</a></li>
+
+      <ul class="flex flex-col gap-3 lg:gap-2 text-sm md:text-base">
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Join HireRight</a>
+        </li>
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Refer a Friend</a>
+        </li>
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Our Stories</a>
+        </li>
       </ul>
-      <ul class="flex flex-col gap-2">
-        <li><a>Blogs</a></li>
-        <li><a>News & Press</a></li>
-        <li><a>Contact Us</a></li>
+
+      <ul class="flex flex-col gap-3 lg:gap-2 text-sm md:text-base">
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Blogs</a>
+        </li>
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >News & Press</a>
+        </li>
+        <li>
+          <a
+            class="cursor-pointer hover:text-black text-gray-700 transition-colors"
+            >Contact Us</a>
+        </li>
       </ul>
     </div>
   </article>

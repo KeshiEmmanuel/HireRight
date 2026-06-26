@@ -9,7 +9,7 @@
   >
     <aside class="flex items-center gap-6">
       <img src="/logo_white.png" alt="company-logo" class="w-40" />
-      <ul class="flex items-center gap-2 text-sm nav-links">
+      <ul class="hidden md:flex items-center gap-2 text-sm nav-links">
         <li><a href="#">For Employers</a></li>
         <li><a href="#">For Job Seekers</a></li>
         <li><a href="#">Industries</a></li>
@@ -17,7 +17,8 @@
         <li><a href="#">Join Us</a></li>
       </ul>
     </aside>
-    <div class="flex gap-2">
+
+    <div class="hidden md:flex gap-2">
       <button
         class="bg-[#F18A00] px-4 py-1 rounded-xl text-white font-medium text-sm font-slab"
       >
@@ -26,6 +27,44 @@
       <button
         id="btn-job"
         class="bg-white px-4 py-1 rounded-xl text-[#1C15E0] font-medium text-sm font-slab"
+      >
+        Find a Job
+      </button>
+    </div>
+
+    <!-- Hamburger — mobile only -->
+    <button
+      id="menu-toggle"
+      class="md:hidden flex flex-col justify-center gap-1.5 p-1"
+      aria-label="Toggle menu"
+    >
+      <span class="block w-6 h-0.5 bg-current transition-colors"></span>
+      <span class="block w-6 h-0.5 bg-current transition-colors"></span>
+      <span class="block w-6 h-0.5 bg-current transition-colors"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu panel -->
+  <div
+    id="mobile-menu"
+    style="display:none"
+    class="bg-[#1C15E0] px-8 py-6 flex flex-col gap-6 text-white text-sm"
+  >
+    <ul class="flex flex-col gap-4">
+      <li><a href="#">For Employers</a></li>
+      <li><a href="#">For Job Seekers</a></li>
+      <li><a href="#">Industries</a></li>
+      <li><a href="#">Meet Our Recruiters</a></li>
+      <li><a href="#">Join Us</a></li>
+    </ul>
+    <div class="flex gap-2">
+      <button
+        class="bg-[#F18A00] px-4 py-1 rounded-xl text-white font-medium font-slab"
+      >
+        Find Talent
+      </button>
+      <button
+        class="bg-white px-4 py-1 rounded-xl text-[#1C15E0] font-medium font-slab"
       >
         Find a Job
       </button>
@@ -40,19 +79,35 @@
   const inner = document.getElementById("nav-inner")!;
   const links = document.querySelectorAll(".nav-links a");
   const btnJob = document.getElementById("btn-job")!;
+  const menuToggle = document.getElementById("menu-toggle")!;
+  const mobileMenu = document.getElementById("mobile-menu")!;
 
-  // Assume the hero section is the first section (or give it id="hero")
   const hero = document.querySelector(
     "#hero, section:first-of-type",
   ) as HTMLElement;
 
+  // --- Mobile menu toggle ---
+  let menuOpen = false;
+
+  menuToggle.addEventListener("click", () => {
+    menuOpen = !menuOpen;
+    mobileMenu.style.display = menuOpen ? "flex" : "none";
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768 && menuOpen) {
+      mobileMenu.style.display = "none";
+      menuOpen = false;
+    }
+  });
+
+  // --- Scroll logic (unchanged) ---
   let lastY = window.scrollY;
   let shown = true;
   let ticking = false;
 
   function updateTheme(pastHero: boolean) {
     if (pastHero) {
-      // White navbar
       gsap.to(inner, {
         backgroundColor: "#ffffff",
         color: "#1C15E0",
@@ -66,7 +121,6 @@
         duration: 0.3,
       });
     } else {
-      // Blue navbar
       gsap.to(inner, {
         backgroundColor: "#1C15E0",
         color: "#ffffff",
@@ -87,7 +141,6 @@
     const scrollingDown = currentY > lastY;
     const heroBottom = hero ? hero.offsetHeight : window.innerHeight;
 
-    // Hide on scroll down, show on scroll up
     if (scrollingDown && shown && currentY > 80) {
       gsap.to(nav, { yPercent: -110, duration: 0.4, ease: "power3.in" });
       shown = false;
@@ -113,7 +166,6 @@
     { passive: true },
   );
 
-  // Entrance slide-in on load
   gsap.from(nav, {
     yPercent: -110,
     duration: 0.6,

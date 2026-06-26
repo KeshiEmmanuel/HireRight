@@ -3,35 +3,53 @@ import Image from "astro/components/Image.astro";
 ---
 
 <section
-  class="pt-12 h-screen overflow-hidden flex flex-col bg-[#1C15E0] text-white"
+  class="pt-6 md:pt-12 md:min-h-screen overflow-hidden flex flex-col bg-[#1C15E0] text-white"
 >
-  <main class="flex-1 grid grid-cols-2 min-h-0">
+  <!-- min-h-screen allows the container to stretch on tablets if content is tall -->
+  <main class="flex-1 flex flex-col md:grid md:grid-cols-2 min-h-0">
     <!-- Left: Content -->
-    <div class="flex flex-col justify-between py-10 pl-8 pr-4">
-      <h1 class="text-6xl font-slab font-medium">
+    <div
+      class="flex flex-col justify-between py-6 md:py-10 px-4 md:pl-8 md:pr-4"
+    >
+      <!-- Added .hero-title class for GSAP -->
+      <h1
+        class="hero-title text-4xl md:text-5xl lg:text-6xl font-slab font-medium leading-tight"
+      >
         The Recruiter you talk to has done your job
       </h1>
 
-      <div class="flex flex-col gap-10">
-        <p class="max-w-[500px]">
+      <div class="flex flex-col gap-6 md:gap-10 mt-8 lg:mt-0">
+        <!-- Added .hero-subtitle class for GSAP -->
+        <p
+          class="hero-subtitle max-w-full md:max-w-[500px] text-sm md:text-base"
+        >
           Goodwin Recruiting places great people with great companies across 12+
           industries. Our recruiters come from the fields they hire for so they
           know exactly who you need, and exactly what you're looking for.
         </p>
-        <div class="flex items-center gap-2">
-          <button class="bg-[#F18A00] px-6 py-2">Find Your Next Role</button>
-          <button class="bg-white text-[#1C15E0] px-6 py-2">Find Talent</button>
+        <div class="flex flex-col sm:flex-row items-center gap-3 md:gap-4">
+          <!-- Added .hero-cta class for GSAP and adjusted mobile button sizing -->
+          <button
+            class="hero-cta bg-[#F18A00] px-6 py-3 rounded-full w-full sm:w-auto font-slab"
+            >Find Your Next Role</button
+          >
+          <button
+            class="hero-cta bg-white text-[#1C15E0] px-6 py-3 rounded-full w-full sm:w-auto font-slab"
+            >Find Talent</button
+          >
         </div>
       </div>
     </div>
 
-    <!-- Right: Hero image as background — never affects layout flow -->
+    <!-- Right: Hero image -->
+    <!-- Removed "hidden", added a min-height for mobile, and tweaked bg-position -->
     <div
-      class="bg-[url('/hero_img.png')] bg-no-repeat bg-contain bg-right-bottom pr-14"
+      class="min-h-[300px] md:min-h-0 mt-8 md:mt-0 bg-[url('/hero_img.png')] bg-no-repeat bg-contain bg-bottom md:bg-right-bottom pr-14"
     >
     </div>
   </main>
 </section>
+
 <script>
   import gsap from "gsap";
 
@@ -39,18 +57,26 @@ import Image from "astro/components/Image.astro";
 
   tl.from(".hero-title", {
     opacity: 0,
-    y: 100,
+    y: 50, // Reduced from 100 to prevent overflow issues on small screens
     ease: "power2.out",
   })
-    .from(".hero-subtitle", {
-      opacity: 0,
-      y: 100,
-      ease: "power4.out",
-    })
-    .from(".hero-cta", {
-      stagger: 0.2,
-      y: 100,
-      opacity: 0,
-      ease: "power1.out",
-    });
+    .from(
+      ".hero-subtitle",
+      {
+        opacity: 0,
+        y: 50,
+        ease: "power4.out",
+      },
+      "-=0.2",
+    ) // Added a slight overlap for a smoother feel
+    .from(
+      ".hero-cta",
+      {
+        stagger: 0.15,
+        y: 50,
+        opacity: 0,
+        ease: "power1.out",
+      },
+      "-=0.2",
+    );
 </script>

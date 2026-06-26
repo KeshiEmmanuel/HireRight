@@ -2,22 +2,26 @@
 import JobCard from "./JobCard.astro";
 ---
 
-<section class="px-8">
+<section class="px-4 md:px-8">
   <article class="flex flex-col gap-4">
     <small
       class="bg-gray-100 text-gray-700 w-fit py-1 px-2 rounded-full text-xs"
-      >Available Job's</small
     >
-    <div class="flex items-end justify-between">
-      <h1 class="font-slab text-6xl font-medium">
-        A Sneak Pic of the <br /> opportunites available
+      Available Job's
+    </small>
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+      <h1 class="font-slab text-4xl md:text-5xl lg:text-6xl font-medium">
+        A Sneak Pic of the <br class="hidden md:block" /> opportunites available
       </h1>
       <button
-        class="bg-[#1c15e0] text-white text-lg w-fit px-6 py-3 rounded-full"
-        >View all Job's</button
+        class="bg-[#1c15e0] text-white text-base lg:text-lg w-fit px-6 py-3 rounded-full shrink-0"
       >
+        View all Job's
+      </button>
     </div>
-    <div class="pt-16 pb-4 grid grid-cols-5 gap-1.5">
+    <div
+      class="pt-8 md:pt-12 lg:pt-16 pb-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-4 xl:gap-1.5"
+    >
       <JobCard
         job_title={`Director of\nGrowth`}
         recuriter="Chance Milkovic"

@@ -1,58 +1,83 @@
-<section class="px-8 py-14">
-  <article class="flex flex-col gap-24">
+---
+// You can import any required scripts or components here
+---
+
+<section class="px-4 md:px-8 py-10 lg:py-14">
+  <article class="flex flex-col gap-12 lg:gap-24">
     <div class="flex flex-col gap-4">
       <small
         class="bg-gray-100 text-gray-700 w-fit py-1 px-2 rounded-full text-xs"
-        >For Job Seeker's</small
       >
-      <div class="flex items-end justify-between">
+        For Job Seeker's
+      </small>
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
         <div>
-          <h1 class="font-slab text-6xl font-medium">
-            Your next role deserves <br /> more than a job board.
+          <h1 class="font-slab text-4xl md:text-5xl lg:text-6xl font-medium">
+            Your next role deserves <br class="hidden md:block" /> more than a job
+            board.
           </h1>
-          <p class="max-w-[640px] pt-4">
+          <p class="max-w-[640px] pt-4 text-sm md:text-base">
             You deserve a recruiter who actually calls you back.
           </p>
         </div>
         <button
-          class="bg-[#1c15e0] text-white text-lg w-fit px-6 py-3 rounded-full"
-          >Show Me What's Out There</button
+          class="bg-[#1c15e0] text-white text-base lg:text-lg w-fit px-6 py-3 rounded-full shrink-0"
         >
+          Show Me What's Out There
+        </button>
       </div>
     </div>
-    <div class="flex justify-between">
+    <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-between">
       <div
-        class="flex flex-col gap-4 px-6 py-8 bg-[#f8f8f8] rounded-lg border border-gray-200"
+        class="flex flex-col gap-4 px-6 py-8 bg-[#f8f8f8] rounded-lg border border-gray-200 flex-1"
       >
-        <h1 class="font-slab font-medium text-[36px] leading-10">
+        <h1
+          class="font-slab font-medium text-3xl lg:text-[36px] leading-tight lg:leading-10"
+        >
           Someone who gets <br /> what you do.
         </h1>
-        <img src="/jobseekercard-1.png" class="mix-blend-luminosity" />
-        <p class="max-w-[392px]">
+        <img
+          src="/jobseekercard-1.png"
+          alt="Someone who gets what you do"
+          class="mix-blend-luminosity object-contain"
+        />
+        <p class="max-w-full lg:max-w-[392px] text-sm md:text-base">
           Your recruiter comes from your industry. They know what your
           experience is worth and how to tell that story to the right employers.
         </p>
       </div>
       <div
-        class="flex flex-col gap-4 px-6 py-8 bg-[#f8f8f8] rounded-lg border border-gray-200"
+        class="flex flex-col gap-4 px-6 py-8 bg-[#f8f8f8] rounded-lg border border-gray-200 flex-1"
       >
-        <h1 class="font-slab font-medium text-[36px] leading-10">
+        <h1
+          class="font-slab font-medium text-3xl lg:text-[36px] leading-tight lg:leading-10"
+        >
           Roles you won't find <br /> anywhere else.
         </h1>
-        <img src="/jobseekercard-2.png" class="mix-blend-luminosity" />
-        <p class="max-w-[392px]">
+        <img
+          src="/jobseekercard-2.png"
+          alt="Roles you won't find anywhere else"
+          class="mix-blend-luminosity object-contain"
+        />
+        <p class="max-w-full lg:max-w-[392px] text-sm md:text-base">
           A lot of what we work on never gets advertised. You get access before
           the job goes public.
         </p>
       </div>
       <div
-        class="flex flex-col gap-4 px-6 py-8 bg-[#f8f8f8] rounded-lg border border-gray-200"
+        class="flex flex-col gap-4 px-6 py-8 bg-[#f8f8f8] rounded-lg border border-gray-200 flex-1"
       >
-        <h1 class="font-slab font-medium text-[36px] leading-10">
+        <h1
+          class="font-slab font-medium text-3xl lg:text-[36px] leading-tight lg:leading-10"
+        >
           No ghost jobs. <br /> No wasted interviews.
         </h1>
-        <img src="/jobseekercard-3.png" class="mix-blend-luminosity" />
-        <p class="max-w-[392px]">
+        <img
+          src="/jobseekercard-3.png"
+          alt="No ghost jobs. No wasted interviews."
+          class="mix-blend-luminosity object-contain"
+        />
+        <p class="max-w-full lg:max-w-[392px] text-sm md:text-base">
           We won't put you forward for something that isn't right. Every role we
           bring you is one we'd take seriously ourselves.
         </p>
