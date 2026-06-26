@@ -1,14 +1,15 @@
 ---
 import Image from "astro/components/Image.astro";
 ---
-<section class="h-screen overflow-hidden flex flex-col bg-[#1C15E0] text-white">
 
+<section
+  class="pt-12 h-screen overflow-hidden flex flex-col bg-[#1C15E0] text-white"
+>
   <main class="flex-1 grid grid-cols-2 min-h-0">
-
     <!-- Left: Content -->
     <div class="flex flex-col justify-between py-10 pl-8 pr-4">
       <h1 class="text-6xl font-slab font-medium">
-      The Recruiter you talk to has done your job
+        The Recruiter you talk to has done your job
       </h1>
 
       <div class="flex flex-col gap-10">
@@ -27,10 +28,9 @@ import Image from "astro/components/Image.astro";
     <!-- Right: Hero image as background — never affects layout flow -->
     <div
       class="bg-[url('/hero_img.png')] bg-no-repeat bg-contain bg-right-bottom pr-14"
-    />
-
+    >
+    </div>
   </main>
-
 </section>
 <script>
   import gsap from "gsap";
