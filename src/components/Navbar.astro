@@ -1,28 +1,30 @@
 ---
-
+// Navbar.astro
 ---
 
-<nav class="fixed top-1 left-0 z-50 w-full">
+<nav id="main-nav" class="fixed top-0 left-0 z-50 w-full will-change-transform">
   <div
-    class="w-full px-8 py-2 flex items-center justify-between w-full mx-auto text-white bg-[#1C15E0]"
+    id="nav-inner"
+    class="w-full px-8 py-2 flex items-center justify-between mx-auto text-white bg-[#1C15E0]"
   >
     <aside class="flex items-center gap-6">
       <img src="/logo_white.png" alt="company-logo" class="w-40" />
-      <ul class="flex items-center gap-2 text-sm text-gray-100">
-        <li><a>For Employers</a></li>
-        <li><a>For Job Seekers</a></li>
-        <li><a>Industries</a></li>
-        <li><a>Meet Our Recruiters</a></li>
-        <li><a>Join Us</a></li>
+      <ul class="flex items-center gap-2 text-sm nav-links">
+        <li><a href="#">For Employers</a></li>
+        <li><a href="#">For Job Seekers</a></li>
+        <li><a href="#">Industries</a></li>
+        <li><a href="#">Meet Our Recruiters</a></li>
+        <li><a href="#">Join Us</a></li>
       </ul>
     </aside>
-    <div>
+    <div class="flex gap-2">
       <button
         class="bg-[#F18A00] px-4 py-1 rounded-xl text-white font-medium text-sm font-slab"
       >
         Find Talent
       </button>
       <button
+        id="btn-job"
         class="bg-white px-4 py-1 rounded-xl text-[#1C15E0] font-medium text-sm font-slab"
       >
         Find a Job
@@ -30,3 +32,92 @@
     </div>
   </div>
 </nav>
+
+<script>
+  import { gsap } from "gsap";
+
+  const nav = document.getElementById("main-nav")!;
+  const inner = document.getElementById("nav-inner")!;
+  const links = document.querySelectorAll(".nav-links a");
+  const btnJob = document.getElementById("btn-job")!;
+
+  // Assume the hero section is the first section (or give it id="hero")
+  const hero = document.querySelector(
+    "#hero, section:first-of-type",
+  ) as HTMLElement;
+
+  let lastY = window.scrollY;
+  let shown = true;
+  let ticking = false;
+
+  function updateTheme(pastHero: boolean) {
+    if (pastHero) {
+      // White navbar
+      gsap.to(inner, {
+        backgroundColor: "#ffffff",
+        color: "#1C15E0",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+      gsap.to([...links], { color: "#000", duration: 0.3 });
+      gsap.to(btnJob, {
+        backgroundColor: "#1C15E0",
+        color: "#ffffff",
+        duration: 0.3,
+      });
+    } else {
+      // Blue navbar
+      gsap.to(inner, {
+        backgroundColor: "#1C15E0",
+        color: "#ffffff",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+      gsap.to([...links], { color: "#ffffff", duration: 0.3 });
+      gsap.to(btnJob, {
+        backgroundColor: "#ffffff",
+        color: "#1C15E0",
+        duration: 0.3,
+      });
+    }
+  }
+
+  function onScroll() {
+    const currentY = window.scrollY;
+    const scrollingDown = currentY > lastY;
+    const heroBottom = hero ? hero.offsetHeight : window.innerHeight;
+
+    // Hide on scroll down, show on scroll up
+    if (scrollingDown && shown && currentY > 80) {
+      gsap.to(nav, { yPercent: -110, duration: 0.4, ease: "power3.in" });
+      shown = false;
+    } else if (!scrollingDown && !shown) {
+      gsap.to(nav, { yPercent: 0, duration: 0.4, ease: "power3.out" });
+      shown = true;
+    }
+
+    updateTheme(currentY > heroBottom);
+
+    lastY = currentY;
+    ticking = false;
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
+
+  // Entrance slide-in on load
+  gsap.from(nav, {
+    yPercent: -110,
+    duration: 0.6,
+    ease: "power3.out",
+    delay: 0.15,
+  });
+</script>
