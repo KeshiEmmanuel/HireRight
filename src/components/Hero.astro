@@ -1,0 +1,56 @@
+---
+import Image from "astro/components/Image.astro";
+---
+<section class="h-screen overflow-hidden flex flex-col bg-[#1C15E0] text-white">
+
+  <main class="flex-1 grid grid-cols-2 min-h-0">
+
+    <!-- Left: Content -->
+    <div class="flex flex-col justify-between py-10 pl-8 pr-4">
+      <h1 class="text-6xl font-slab font-medium">
+      The Recruiter you talk to has done your job
+      </h1>
+
+      <div class="flex flex-col gap-10">
+        <p class="max-w-[500px]">
+          Goodwin Recruiting places great people with great companies across 12+
+          industries. Our recruiters come from the fields they hire for so they
+          know exactly who you need, and exactly what you're looking for.
+        </p>
+        <div class="flex items-center gap-2">
+          <button class="bg-[#F18A00] px-6 py-2">Find Your Next Role</button>
+          <button class="bg-white text-[#1C15E0] px-6 py-2">Find Talent</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Hero image as background — never affects layout flow -->
+    <div
+      class="bg-[url('/hero_img.png')] bg-no-repeat bg-contain bg-right-bottom pr-14"
+    />
+
+  </main>
+
+</section>
+<script>
+  import gsap from "gsap";
+
+  const tl = gsap.timeline({ delay: 0.25 });
+
+  tl.from(".hero-title", {
+    opacity: 0,
+    y: 100,
+    ease: "power2.out",
+  })
+    .from(".hero-subtitle", {
+      opacity: 0,
+      y: 100,
+      ease: "power4.out",
+    })
+    .from(".hero-cta", {
+      stagger: 0.2,
+      y: 100,
+      opacity: 0,
+      ease: "power1.out",
+    });
+</script>

@@ -1,0 +1,63 @@
+---
+import JobCard from "./JobCard.astro";
+---
+
+<section class="px-8">
+  <article class="flex flex-col gap-4">
+    <small
+      class="bg-gray-100 text-gray-700 w-fit py-1 px-2 rounded-full text-xs"
+      >Available Job's</small
+    >
+    <div class="flex items-end justify-between">
+      <h1 class="font-slab text-6xl font-medium">
+        A Sneak Pic of the <br /> opportunites available
+      </h1>
+      <button
+        class="bg-[#1c15e0] text-white text-lg w-fit px-6 py-3 rounded-full"
+        >View all Job's</button
+      >
+    </div>
+    <div class="pt-16 pb-4 grid grid-cols-5 gap-1.5">
+      <JobCard
+        job_title={`Director of\nGrowth`}
+        recuriter="Chance Milkovic"
+        location="Columbus, Ohio"
+        salary="$120k-$180k"
+        field="Hospitality Operations"
+        type="Onsite"
+      />
+      <JobCard
+        job_title={`CFO`}
+        recuriter="Jane Stol"
+        location="Miami, Florida"
+        salary="$100k-$195k"
+        field="Marketing"
+        type="Remote"
+      />
+      <JobCard
+        job_title={`Project\nManager`}
+        recuriter="Rodriguez Quaresma"
+        location="Columbus, Ohio"
+        salary="$110k-$190k"
+        field="Consulting"
+        type="Contract"
+      />
+      <JobCard
+        job_title={`Tax\nManager`}
+        recuriter="Cash Wells"
+        location="Seaside, California"
+        salary="$90k-$180k"
+        field="Financial"
+        type="Onsite"
+      />
+      <JobCard
+        job_title={`Senior Lead\nProduct`}
+        recuriter="Sarah Adams"
+        location="Port Chester, New York"
+        salary="$100k-$200k"
+        field="EdTech"
+        type="Onsite"
+      />
+    </div>
+  </article>
+</section>

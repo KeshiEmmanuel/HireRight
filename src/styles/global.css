@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --font-tight: var(--font-tight);
+  --font-slab: var(--font-funnel);
+}
+.font-sans {
+  font-family: var(--font-funeel);
+  letter-spacing: -1%;
+}
+body {
+  overflow: visible;
+}
